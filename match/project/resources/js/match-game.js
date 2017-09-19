@@ -5,13 +5,15 @@ var MatchGame = {};
   Renders a 4x4 board of cards.
 */
 
+
+
 /*
   Generates and returns an array of matching card values.
  */
 
 MatchGame.generateCardValues = function () {
-  var cards = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
-  return cards;
+  var cardValues = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8];
+  return cardValues;
 
 };
 
@@ -21,6 +23,10 @@ MatchGame.generateCardValues = function () {
 */
 
 MatchGame.renderCards = function(cardValues, $game) {
+  var $game = ($game).html('<div><h1>Old Game</h1></div>');
+  $('game').add("cardValues");
+  var $card = $(cardValues);
+  var $cards = $('game').find('.card');
 
 
 };
