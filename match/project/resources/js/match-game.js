@@ -10,12 +10,28 @@ var MatchGame = {};
 /*
   Generates and returns an array of matching card values.
  */
+ function myFunction () {
+   console.log("My first function!")
+ }
+
+
+
 
 MatchGame.generateCardValues = function () {
-  var cardValues = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8];
-  return cardValues;
 
-};
+  var cardValues = [];
+
+  for (var i=1; i<8; i++) {
+    cardValues.push(i);
+    var randomValues = [];
+    while (cardValues.length > 0) {
+      var randomIndex = Math.floor(Math.random() * cardValues.length);
+      var removedValue = cardValues.splice(2,1);
+      randomValues.push(randomIndex);
+    }
+    return randomValues;
+  }
+
 
 /*
   Converts card values to jQuery card objects and adds them to the supplied game
@@ -23,10 +39,7 @@ MatchGame.generateCardValues = function () {
 */
 
 MatchGame.renderCards = function(cardValues, $game) {
-  var $game = ($game).html('<div><h1>Old Game</h1></div>');
-  $('game').add("cardValues");
-  var $card = $(cardValues);
-  var $cards = $('game').find('.card');
+
 
 
 };
