@@ -4,33 +4,42 @@ var MatchGame = {};
   Sets up a new game after HTML document has loaded.
   Renders a 4x4 board of cards.
 */
+$(document).ready(function() {
+  MatchGame.renderCards()
 
+});
 
 
 /*
   Generates and returns an array of matching card values.
  */
- function myFunction () {
-   console.log("My first function!")
- }
-
-
-
 
 MatchGame.generateCardValues = function () {
 
-  var cardValues = [];
+    var sequentialValues = [];
 
-  for (var i=1; i<8; i++) {
-    cardValues.push(i);
-    var randomValues = [];
-    while (cardValues.length > 0) {
-      var randomIndex = Math.floor(Math.random() * cardValues.length);
-      var removedValue = cardValues.splice(2,1);
-      randomValues.push(randomIndex);
+    for (var i=1; i<9; i++) {
+      sequentialValues.push(i);
+      sequentialValues.push(i);
     }
-    return randomValues;
-  }
+
+    console.log(sequentialValues);
+
+    var cardValues = [];
+
+    while (sequentialValues.length > 0) {
+      var randomIndex = Math.floor(Math.random() * sequentialValues.length);
+      var randomValue = sequentialValues.splice(randomIndex, 1)[0];
+      cardValues.push(randomValue);
+    }
+
+    console.log(cardValues);
+
+    return cardValues;
+
+  };
+
+
 
 
 /*
@@ -39,6 +48,17 @@ MatchGame.generateCardValues = function () {
 */
 
 MatchGame.renderCards = function(cardValues, $game) {
+
+  var colors = ["hsl(25,85%,65%)","hsl(55,85%,65%)","hsl(90,85%,65%)","hsl(160,85%,65%)","hsl(220,85%,65%)","hsl(265,85%,65%)","hsl(310,85%,65%)","hsl(360,85%,65%)"]
+
+  $("game").empty();
+  for (i=1; i<cardValues.length;i++) {
+    var $newCard = $("<div class="col-xs-3 card"></div>");
+    $("newCard").data("value", cardValues);
+    $("newCard").data("color",colors);
+    $("newCard").data("flipped", false);
+    $("game").append("newCard");
+  }
 
 
 
