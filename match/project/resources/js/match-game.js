@@ -43,7 +43,7 @@ MatchGame.generateCardValues = function () {
 
 
 /*
-  Converts card values to jQuery card objects and adds them to the supplied game
+  Converts card values to jQuery card objects and adds them to the supplied game@
   object.
 */
 
